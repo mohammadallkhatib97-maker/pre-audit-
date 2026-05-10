@@ -42,3 +42,56 @@ body {
 
 /* Selection */
 ::selection { background: rgba(233,196,106,0.3); color: var(--navy); }
+
+/* ── Mobile Responsive ── */
+@media (max-width: 768px) {
+
+  /* كل grid بعمودين يصير عمود واحد */
+  div[style*="grid-template-columns: 1fr 1fr"],
+  div[style*="grid-template-columns: repeat(2"],
+  div[style*="gridTemplateColumns: '1fr 1fr'"],
+  div[style*="gridTemplateColumns: 'repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* كل grid بأربعة أعمدة يصير عمودين */
+  div[style*="grid-template-columns: repeat(4"],
+  div[style*="gridTemplateColumns: 'repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* كل grid بثلاثة أعمدة يصير عمود واحد */
+  div[style*="grid-template-columns: repeat(3"],
+  div[style*="gridTemplateColumns: 'repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* padding أقل على الموبايل */
+  div[style*="padding: '2rem 2.5rem'"],
+  div[style*="padding: 2rem 2.5rem"] {
+    padding: 1rem !important;
+  }
+
+  /* الجداول تتمرر أفقياً بدل ما تنكسر */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* الأزرار تملأ العرض */
+  div[style*="display: 'flex'"] > button,
+  div[style*="display: flex"] > button {
+    flex: 1;
+  }
+
+  /* النصوص الكبيرة تصغر شوي */
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.25rem !important; }
+
+  /* الـ cards تاخذ عرض كامل */
+  div[style*="width: '210mm'"],
+  div[style*="width: 210mm"] {
+    width: 100% !important;
+  }
+}
