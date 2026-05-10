@@ -96,7 +96,7 @@ export default function BeautifulReportPage() {
   const [notes, setNotes] = useState<Note[]>([])
   const [aiSummary, setAiSummary] = useState('')
   const [aiRecommendations, setAiRecommendations] = useState<string[]>([])
-  const [aiInsights, setAiInsights] = useState({ strengths: [], improvements: [] })
+ const [aiInsights, setAiInsights] = useState<{ strengths: string[]; improvements: string[] }>({ strengths: [], improvements: [] })
   const [loading, setLoading] = useState(true)
   const [generating, setGenerating] = useState(false)
 
