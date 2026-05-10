@@ -137,8 +137,11 @@ export default function BeautifulReportPage() {
             compliant_count: auditRes.data.compliant_count,
             non_compliant_count: auditRes.data.non_compliant_count,
             observation_count: auditRes.data.observation_count,
+            not_applicable_count: auditRes.data.not_applicable_count || 0,
+            auditor_name: auditRes.data.auditor_name,
+            client_name: auditRes.data.client_name,
             answers: answersRes.data || [],
-          }
+          } as any
 
           const [summary, recommendations, insights] = await Promise.all([
             generateExecutiveSummary(reportData),
