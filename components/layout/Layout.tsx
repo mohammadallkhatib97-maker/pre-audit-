@@ -6,9 +6,9 @@ import Sidebar from './Sidebar'
 import { theme } from '../../lib/theme'
 
 interface Props {
-  children:  React.ReactNode
-  title?:    string
-  noPad?:    boolean
+  children: React.ReactNode
+  title?:   string
+  noPad?:   boolean
 }
 
 export default function Layout({ children, title, noPad }: Props) {
@@ -48,19 +48,31 @@ export default function Layout({ children, title, noPad }: Props) {
     <>
       <Head>
         <title>{title ? `${title} — Pioneers` : 'Pioneers Audit System'}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div style={{ display: 'flex', minHeight: '100vh', background: theme.bg }}>
         <Sidebar />
         <main style={{
-          flex: 1, minHeight: '100vh',
+          flex: 1,
+          minHeight: '100vh',
           padding: noPad ? 0 : '2rem 2.5rem',
           overflowX: 'hidden',
-        }}>
+        }}
+          className="main-content"
+        >
           <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
             {children}
           </div>
         </main>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .main-content {
+            padding: ${noPad ? '56px 0 0' : '72px 1rem 1.5rem'} !important;
+          }
+        }
+      `}</style>
     </>
   )
 }
